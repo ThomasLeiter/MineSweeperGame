@@ -29,9 +29,21 @@ class MineSweeperGame:
     """
     Game logic class of the MineSweeper game.
     """
-    def __init__(self,height,width,mine_count):
-        self.height = height
+    def __init__(self,width,height,mine_count):
+        """
+        Create a new game of MineSweeper.
+
+        Parameters:
+        ------------
+        width : int
+            Number of squares per row
+        height : int
+            Number of squares per column
+        mine_count : int
+            Number of mines
+        """
         self.width = width
+        self.height = height
         self.mine_count = mine_count
         self.defused_count = 0
         self.reveiled_count = 0
