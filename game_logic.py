@@ -27,21 +27,18 @@ class State(Enum):
 
 class MineSweeperGame:
     """
-    Game logic class of the MineSweeper game.
+    Create a new game of MineSweeper.
+    
+    Parameters:
+    ------------
+    width : int
+        Number of squares per row
+    height : int
+        Number of squares per column
+    mine_count : int
+    Number of mines
     """
     def __init__(self,width,height,mine_count):
-        """
-        Create a new game of MineSweeper.
-
-        Parameters:
-        ------------
-        width : int
-            Number of squares per row
-        height : int
-            Number of squares per column
-        mine_count : int
-            Number of mines
-        """
         self.width = width
         self.height = height
         self.mine_count = mine_count
