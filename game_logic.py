@@ -3,6 +3,9 @@ from random import shuffle
 from enum import Enum
 
 class State(Enum):
+    """
+    States of a square in the MineSweeper game.
+    """
     ZERO = '0'
     ONE = '1'
     TWO = '2'
@@ -23,7 +26,9 @@ class State(Enum):
 
 
 class MineSweeperGame:
-
+    """
+    Game logic class of the MineSweeper game.
+    """
     def __init__(self,height,width,mine_count):
         self.height = height
         self.width = width

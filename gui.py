@@ -1,12 +1,26 @@
 import pygame
 from pygame import Vector2
 from game_logic import MineSweeperGame, State
-#from game_logic import State
 from os.path import join
 
 SQUARE_WIDTH = 40
 
 def load_sprite(sprite_name,size=None,color_key=(255,255,255)):
+    """
+    Load a sprite from sub_directory 'sprites/'. 
+
+    Parameters:
+    ------------
+    sprite_name: str
+        The name of the sprite to load.
+    size: Tupel[int,int], optional
+        The size of the sprite
+    color_key: color, optional
+        The color_key (transparent color) to be set
+    Returns:
+    Surface
+        The loaded sprite with requested properties
+    """
     path = join('sprites',f"{sprite_name}.png")
     sprite = pygame.image.load(path).convert()
     sprite.set_colorkey(color_key)
@@ -14,8 +28,10 @@ def load_sprite(sprite_name,size=None,color_key=(255,255,255)):
         sprite = pygame.transform.scale(sprite,size)
     return sprite
 
-
 class GUISquare:
+    """
+    GUISquare represents a single square of the MinesweeperGui. 
+    """
     def __init__(self,x,y):
         self.sprites = {}
         for status in State:
@@ -27,6 +43,9 @@ class GUISquare:
         surface.blit(self.sprites[self.status],self.position)
 
 class MineSweeperGUI:
+    """
+    GUI class of the MineSweeper game. 
+    """
     def __init__(self,width,height,mine_count):
         self.game = MineSweeperGame(width,height,mine_count)
         self._init_pygame()
