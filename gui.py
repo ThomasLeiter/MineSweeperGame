@@ -45,6 +45,15 @@ class GUISquare:
 class MineSweeperGUI:
     """
     GUI class of the MineSweeper game. 
+
+    Parameters:
+    ------------
+    width : int
+        Number of squares per row
+    height : int
+        Number of squares per column
+    mine_count : int
+    Number of mines
     """
     def __init__(self,width,height,mine_count):
         self.game = MineSweeperGame(width,height,mine_count)
