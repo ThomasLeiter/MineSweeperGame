@@ -71,10 +71,19 @@ class MineSweeperGUI:
                 quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self._handle_mouse_click(event)
+            if event.type == pygame.KEYDOWN:
+                self.handle_key_pressed(event)
 
     def _update_game(self):
         for (x,y) in self.game.grid:
             self.squares[x,y].status = self.game.get_square_status(x,y)
+
+    def handle_key_pressed(self,key_event):
+        if key_event.key == pygame.K_n:
+            width = self.game.width
+            height = self.game.height
+            mine_count = self.game.mine_count
+            self.game = MineSweeperGame(width, height, mine_count)
 
     def _handle_mouse_click(self,mouse_event):
         if self.game.game_state != 'OPEN':
