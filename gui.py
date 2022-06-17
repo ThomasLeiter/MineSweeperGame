@@ -90,9 +90,9 @@ class MineSweeperGUI:
         msg = self.font.render(
                 self.game.game_state,True,(255,0,0),(255,255,255))
         msg.set_colorkey((255,255,255))
+        x,y = msg.get_size()
         _x,_y = self.screen.get_size()
-        _x,_y = _x/2,_y/2
-        self.screen.blit(msg,Vector2(_x,_y))
+        self.screen.blit(msg,Vector2((_x-x)/2,(_y-y)/2))
 
     def _draw(self):
         for (x,y) in self.squares:
